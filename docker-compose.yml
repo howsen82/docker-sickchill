@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  sickchill:
+    container_name: sickchill
+    image: lscr.io/linuxserver/sickchill:latest
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Kuching
+    volumes:
+      - /data/sickchill/config:/config
+      - /data/sickchill/downloads:/downloads
+      - /data/sickchill/tv:/tv
+    ports:
+      - 8081:8081
+    restart: unless-stopped
